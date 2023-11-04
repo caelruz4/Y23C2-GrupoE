@@ -1,0 +1,87 @@
+{% extends 'layout.html'%}
+{% block title %}
+Register
+{% endblock%}
+{% block content %}
+<div class="bg-blue-300 text-gray-700 text-lg p-4 mb-4 rounded-lg flex">
+    <div class="w-3/5 pr-4 flex items-center justify-center" style="padding-left: 3%;">
+        <div>
+            <h1 class="text-2xl font-semibold">Registro de usuarios</h1>
+            <p class="text-justify">Registra a un usuario y su deporte favorito.</p>
+            <ul>
+              <li class="font-semibold">
+                <a href="/ver-registros">
+                  <button type="button" class="focus:outline-none text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900 my-4">Ver registros</button>
+                </a>
+              </li>
+            </ul>
+        </div>
+    </div>
+    <div class="w-2/5 flex justify-center">
+        <img src="{{ url_for('static', filename='imagen1.png') }}" alt="Carpeta" class="w-1/2 h-auto">
+    </div>
+</div>
+
+<!-- Contenido Formulario -->
+<div class="contenido">
+    <div class="py-6">
+        <div class="bg-gray-100 rounded-lg shadow-lg overflow-hidden mx-auto max-w-4xl">
+          <div class="flex rounded-lg">
+            <div class="hidden lg:flex items-center justify-center w-full rounded-lg" style="background-color:antiquewhite;">
+              <img src="{{ url_for('static', filename='imagen2.jpg') }}" alt="Imagen" class="w-3/4 max-h-96 object-contain">
+            </div>
+            <div class="w-full lg:w-1/2 p-8 rounded-lg">
+
+              <form class="register-form" method="post" action="/">
+
+                <h1 class="text-2xl font-bold text-center">Regístrate</h1>
+                <div class="mb-4 mt-6">
+                  <label
+                    class="block text-gray-700 text-sm font-semibold mb-2"
+                  >
+                    Nombre
+                  </label>
+
+                  <input
+                    class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
+
+                    id="nombre"
+                    name="nombre"
+                    type="text"
+                    placeholder="Ingresa tu nombre"
+                    required
+                  />
+                </div>
+                <div class="mb-6 mt-6">
+                  <label
+                    class="block text-gray-700 text-sm font-semibold mb-2"
+                    htmlFor="password"
+                  >
+                  Tu deporte:
+                  </label>
+                  <input
+                    class="text-sm bg-gray-200 appearance-none rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline h-10"
+                    id="deporte"
+                    name="deporte"
+                    type="text"
+                    placeholder="Tu deporte favorito"
+                    required
+                  />
+
+                </div>
+                <div class="flex w-full mt-8">
+                  <button
+                    class="btn1 w-full bg-green-500 text-white text-sm py-2 px-4 font-semibold rounded-full focus:outline-none focus:shadow-outline h-10"
+                    type="submit"
+                  >
+                  in
+                    Registrar
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock %}

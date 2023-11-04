@@ -1,0 +1,16 @@
+{% extends 'layout.html'%}
+
+{% block title %}
+Register
+{% endblock%}
+
+{% block content %}
+<h1>Error</h1>
+{% if mensaje %}
+<div>
+    <p>
+        {{mensaje}}
+    </p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+body{
+    font-size: medium;
+}
+.boton {
+    background-color:thistle;
+    padding: 2%;
+    font-size: medium;
+    font-weight: 400;
+    border-radius: 10%;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-md mx-auto bg-white p-4 rounded shadow">
+        <h1 class="text-2xl font-semibold mb-4">Lista de Tareas</h1>
+
+        <!-- Formulario para agregar una nueva tarea -->
+        <form class="mb-4" action="/agregar" method="post">
+            <input type="text" name="description" id="description" class="w-full border rounded px-3 py-2" placeholder="Nueva tarea..." />
+            <button type="submit" class="mt-2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Agregar</button>
+        </form>
+
+        <!-- Lista de tareas -->
+        <ul>
+            {% for tarea in tareas %}
+            <li class="flex items-center justify-between py-2 bg-gray-200">
+                {% if tarea["completed"] == 1 %}
+                <span class="text-lg text-green-400">{{ tarea["descripcion"] }}</span>
+                {% else %}
+                <span class="text-lg">{{ tarea["descripcion"] }}</span>
+                {% endif %}
+                <div>
+                    {% if tarea["completed"] == 1 %}
+                    <form action="/completar/{{ tarea['id'] }}" method="POST">
+                        <button class="text-green-500 hover:text-green-700" disabled>Completar</button>
+                    </form>
+                    {% else %}
+                    <form action="/completar/{{ tarea['id'] }}" method="POST">
+                        <button class="text-green-500 hover:text-green-700">Completar</button>
+                    </form>
+                    {% endif %}
+                    <form action="/borrar/{{ tarea['id'] }}" method="POST">
+                        <button class="text-gray-500 hover:text-red-500 mr-2">Eliminar</button>
+                    </form>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
